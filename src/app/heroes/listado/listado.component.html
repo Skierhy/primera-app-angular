@@ -1,0 +1,28 @@
+<p>listado de heroes</p>
+
+<ul>
+  <!-- variable of arreglo(propiedad);index -->
+  <li *ngFor="let heroe of heroes; let i = index">{{ heroe }}</li>
+</ul>
+
+<!-- *ngIf="HeroeBorrador-->
+<!--
+    *ngIf-else
+    if condicion; else referenciaLocal
+ -->
+<div *ngIf="HeroeBorrador !== ''; else noBorrado">
+  <h1>
+    Heroe borrado: <small>{{ HeroeBorrador }}</small>
+  </h1>
+  <br />
+  <br />
+</div>
+
+<!-- ng-template componente de angular 
+    usa #para la referencia local
+     -->
+<ng-template #noBorrado>
+  <h3>No ha borrado nada</h3>
+</ng-template>
+
+<button (click)="borrar()">Borrar</button>
