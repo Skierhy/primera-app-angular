@@ -4,11 +4,14 @@
 <div class="row">
   <div class="col">
     <!-- asociar -->
-
     <app-personaje [data]="personajes"></app-personaje>
   </div>
   <div class="col">
     <!-- [recibe]='envía' -->
-    <app-agregar [personajes]="personajes" [nuevo]="nuevo"></app-agregar>
+    <!-- (envia) = recibe -->
+    <app-agregar
+      (OnNuevoPersonaje)="agregarNuevoPersonaje($event)"
+      [nuevo]="nuevo"
+    ></app-agregar>
   </div>
 </div>
