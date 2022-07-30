@@ -6,7 +6,8 @@ import { PersonajesInterfaces } from '../interfaces/dbz.interface';
 // lo que se refiere que esta clase se puede injectar
 //
 export class DbzService {
-  personajes: PersonajesInterfaces[] = [
+  // seguro el acceso de la info
+  private _personajes: PersonajesInterfaces[] = [
     {
       nombre: 'Goku',
       poder: 150,
@@ -16,7 +17,18 @@ export class DbzService {
       poder: 50,
     },
   ];
+
+  get personajes(): PersonajesInterfaces[] {
+    // en arreglo[...son spread]
+    // spread separa los elementos independientes y crea un nuevo
+    // para que se rompa la referencia
+    return [...this._personajes];
+  }
   constructor() {
     console.log('Servicio Inicializado...');
+  }
+
+  agregarPersonajes(personajes: PersonajesInterfaces) {
+    this._personajes.push(personajes);
   }
 }
